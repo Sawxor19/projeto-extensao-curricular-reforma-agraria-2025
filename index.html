@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reforma Agrária — Guia Educativo</title>
+    <meta name="description" content="Estudo sobre a função social da terra no Brasil: história, impactos sociais, políticas públicas e propostas práticas para reforma agrária.">
+    <meta name="theme-color" content="#28a745">
+    <link rel="icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Preserva paleta de cores — apenas reorganizamos e modernizamos o layout */
+        :root{
+            --cor-primaria: #28a745;
+            --cor-secundaria: #343a40;
+            --cor-texto-claro: #6c757d;
+            --cor-fundo-principal: #f8f9fa;
+            --cor-card-fundo: #ffffff;
+            --cor-borda: #e9ecef;
+            --cor-destaque-claro: #e2f2e6;
+
+            /* Add small system tokens */
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --gap-sm: 12px;
+            --gap-md: 24px;
+            --container-max: 1180px;
+            --transition-fast: 180ms;
+            --transition-smooth: 300ms;
+        }
+
+        /* Base reset and utilities */
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{
+            font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            margin:0;
+            background:var(--cor-fundo-principal);
+            color:var(--cor-secundaria);
+            line-height:1.6;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            font-size:16px;
+        }
+
+        /* Layout container */
+        .container{
+            max-width:var(--container-max);
+            margin:36px auto;
+            padding:20px;
+            display:grid;
+            grid-template-columns:260px 1fr;
+            gap:var(--gap-md);
+            align-items:start;
+        }
+
+        /* Header */
+        .main-header{
+            background:var(--cor-primaria);
+            color:#fff;
+            padding:48px 20px;
+            text-align:center;
+        }
+        .main-header h1{font-size:1.9rem;margin-bottom:6px}
+        .main-header p{opacity:.95;margin:0;font-weight:400}
+
+        /* Sidebar navigation — modern, compact and keyboard-friendly */
+        .sidebar-menu{
+            position:sticky;top:28px;
+            align-self:start;
+            padding:12px;
+            border-radius:var(--radius-md);
+            background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+            border:1px solid var(--cor-borda);
+            box-shadow:0 6px 18px rgba(16,24,40,0.06);
+        }
+        .sidebar-menu .nav-btn{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            width:100%;
+            padding:10px 12px;
+            background:transparent;
+            border:1px solid transparent;
+            border-radius:8px;
+            color:var(--cor-secundaria);
+            text-align:left;
+            cursor:pointer;
+            transition:all var(--transition-fast) ease;
+            font-weight:600;
+        }
+        .sidebar-menu .nav-btn:hover{background:var(--cor-destaque-claro);color:var(--cor-primaria)}
+        .sidebar-menu .nav-btn:focus{outline:3px solid rgba(40,167,69,0.18);outline-offset:3px}
+        .sidebar-menu .nav-btn.active{background:var(--cor-primaria);color:#fff;box-shadow:0 6px 18px rgba(40,167,69,0.12)}
+
+        /* Main content area */
+        .content-area{min-height:60vh}
+        .content-card{
+            background:var(--cor-card-fundo);
+            padding:28px;
+            border-radius:var(--radius-md);
+            border:1px solid var(--cor-borda);
+            box-shadow:0 10px 30px rgba(3,10,18,0.04);
+            transition:transform var(--transition-smooth) ease, opacity var(--transition-smooth) ease;
+        }
+        .content-card.hidden{display:none}
+        .content-card.active{opacity:1;transform:none}
+
+        /* Headings */
+        h1,h2,h3{color:var(--cor-primaria);margin:0 0 12px}
+        h2{font-size:1.4rem;padding-bottom:10px;border-bottom:1px solid var(--cor-borda)}
+        h3{font-size:1.05rem}
+
+        p{color:var(--cor-secundaria);margin:0 0 12px}
+
+        /* Subcards / grids */
+        .subcard-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:18px 0}
+        .subcard{background:transparent;padding:14px;border-radius:8px}
+
+        /* Lists */
+        .list-data,.list-simple-data{list-style:none;padding:0;margin:0 0 16px}
+        .list-data li{padding-left:30px;position:relative;margin-bottom:8px}
+        .list-data li::before{content:"✔";position:absolute;left:0;top:0;color:var(--cor-primaria);font-weight:700}
+
+        /* Projections box */
+        .data-box-projection{background:var(--cor-destaque-claro);border-left:4px solid var(--cor-primaria);padding:14px;border-radius:6px}
+
+        /* Motivo grid */
+        .motivo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+        .motivo-item{background:#fff;padding:16px;border-radius:8px;border:1px solid var(--cor-borda)}
+
+        /* Pros/Contras */
+        .pros-contras-table{display:grid;gap:14px}
+        .argumento-item{padding:14px;border-radius:8px;background:var(--cor-card-fundo);border:1px solid var(--cor-borda)}
+
+        /* Acordeão modernizado */
+        .acordeao-item{margin-bottom:10px}
+        .acordeao-titulo{
+            display:flex;justify-content:space-between;align-items:center;width:100%;padding:12px 14px;border-radius:8px;background:transparent;border:1px solid var(--cor-borda);cursor:pointer;font-weight:700;transition:all var(--transition-fast)
+        }
+        .acordeao-titulo:hover{background:var(--cor-destaque-claro)}
+        .acordeao-titulo[aria-expanded="true"]{background:var(--cor-primaria);color:#fff;border-color:transparent}
+        .acordeao-icon{transition:transform var(--transition-fast)}
+        .acordeao-conteudo{max-height:0;overflow:hidden;transition:max-height var(--transition-smooth),padding var(--transition-smooth)}
+        .acordeao-conteudo.expanded{max-height:1000px;padding:12px 14px;background:var(--cor-card-fundo);border:1px solid var(--cor-borda);border-top:0}
+
+        /* Read-more button */
+        .read-more-btn{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:8px;border:1px solid var(--cor-borda);background:transparent;cursor:pointer;font-weight:700}
+        .read-more-btn[aria-expanded="true"]{background:var(--cor-primaria);color:#fff;border-color:transparent}
+
+        /* Table responsive wrapper */
+        .table-wrap{overflow:auto;border-radius:8px}
+        table{width:100%;border-collapse:collapse}
+        th,td{padding:8px;border-bottom:1px solid var(--cor-borda);text-align:left}
+
+        /* Footer */
+        .main-footer{padding:22px;text-align:center;background:var(--cor-card-fundo);border-top:1px solid var(--cor-borda);color:var(--cor-texto-claro)}
+
+        /* Responsive adjustments */
+        @media (max-width:980px){
+            .container{grid-template-columns:1fr;padding:18px;gap:18px}
+            .sidebar-menu{position:relative;display:flex;flex-wrap:wrap;gap:8px}
+            .sidebar-menu .nav-btn{flex:1 1 calc(50% - 8px);min-width:140px}
+        }
+        @media (max-width:520px){
+            .sidebar-menu .nav-btn{flex:1 1 100%}
+            .main-header h1{font-size:1.25rem}
+            .content-card{padding:18px}
+        }
+        /* Educational section specific styles */
+        .edu-hero{background:linear-gradient(90deg, rgba(226,242,230,0.6), rgba(255,255,255,0.6));padding:16px;border-radius:8px;border:1px solid var(--cor-borda)}
+        .takeaways h4{margin:8px 0}
+        .glossary dl{display:grid;grid-template-columns:1fr;gap:8px}
+        .glossary dt{font-weight:700;color:var(--cor-primaria);margin-top:8px}
+        .glossary dd{margin:0 0 8px 0;color:var(--cor-secundaria)}
+        .examples ul,.resources ul{margin:8px 0 0 16px}
+        .activities ol{margin:8px 0 0 16px}
+        .resources a{color:var(--cor-primaria);text-decoration:none}
+        .resources a:hover{text-decoration:underline}
+    /* Mapbiomas embed styles */
+    .mapbiomas-section{background:linear-gradient(180deg, #fff, rgba(226,242,230,0.3));padding:12px;border-radius:8px;border:1px solid var(--cor-borda)}
+    .mapbiomas-load-btn{margin-top:6px;padding:8px 12px;border-radius:8px;border:1px solid var(--cor-borda);background:transparent;cursor:pointer}
+    .mapbiomas-embed{min-height:160px;border-radius:8px;overflow:hidden;background:#fafafa;display:flex;align-items:center;justify-content:center}
+    .mapbiomas-embed iframe{width:100%;height:420px;border:0}
+    .map-placeholder{color:var(--cor-texto-claro);padding:10px;text-align:center}
+        /* Gallery for projection images */
+        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+        .gallery-item{background:var(--cor-card-fundo);border:1px solid var(--cor-borda);border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:8px;cursor:pointer}
+        .gallery-item img{max-width:100%;height:auto;display:block;}
+        /* Lightbox overlay */
+        .lightbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:9999;opacity:0;pointer-events:none;transition:opacity 180ms}
+        .lightbox-overlay.open{opacity:1;pointer-events:auto}
+        .lightbox-overlay img{max-width:92%;max-height:92%;box-shadow:0 10px 40px rgba(0,0,0,0.6);border-radius:6px}
+    </style>
+    </head>
+
+<body>
+
+    <header class="main-header">
+        <h1>Reforma Agrária — Guia Educativo</h1>
+        <p>Guia educativo: conceitos, contexto e recursos práticos para entender a função social da terra.</p>
+    </header>
+
+    <main class="container">
+        <nav class="sidebar-menu" id="navMenu" role="navigation" aria-label="Navegação do documento">
+            <button type="button" class="nav-btn active" data-target="intro-section" aria-controls="intro-section" aria-selected="true">🌍 Introdução</button>
+            <button type="button" class="nav-btn" data-target="impactos-sociais" aria-controls="impactos-sociais" aria-selected="false">🏙️ Impactos Sociais e Urbanos</button>
+            <button type="button" class="nav-btn" data-target="projecoes-uso" aria-controls="projecoes-uso" aria-selected="false">📈 Projeções de Uso da Terra</button>
+            <button type="button" class="nav-btn" data-target="historia-posse" aria-controls="historia-posse" aria-selected="false">📜 História da Posse</button>
+            <button type="button" class="nav-btn" data-target="motivos-pro" aria-controls="motivos-pro" aria-selected="false">✅ Por que Fazer Reforma Agrária?</button>
+            <button type="button" class="nav-btn" data-target="motivos-contra" aria-controls="motivos-contra" aria-selected="false">❌ Por que São Contra?</button>
+            <button type="button" class="nav-btn" data-target="politicas-agro" aria-controls="politicas-agro" aria-selected="false">🚜 Políticas Pró-Agronegócio</button>
+            <button type="button" class="nav-btn" data-target="plano-pratico" aria-controls="plano-pratico" aria-selected="false">📝 Plano Prático de Distribuição</button>
+            <button type="button" class="nav-btn" data-target="ideias-complementares" aria-controls="ideias-complementares" aria-selected="false">💡 Dimensão: Ideias Complementares</button>
+            <button type="button" class="nav-btn" data-target="conclusao-final" aria-controls="conclusao-final" aria-selected="false">🌱 Conclusão Final</button>
+        </nav>
+
+        <div id="mainContent" class="content-area" tabindex="-1">
+
+            <section id="intro-section" class="content-card active">
+                <h2>🌍 Introdução A terra e o povo brasileiro</h2>
+                <div class="subcard-container">
+                    <article class="subcard">
+                        <p><strong>Desde 1500, a terra no Brasil nunca foi apenas território. Foi poder, riqueza e sobrevivência.</strong> Enquanto uma pequena elite se beneficiou de doações, grilagens e isenções, a maioria do povo ficou sem acesso ao solo que pisa. Mais de cinco séculos depois, a estrutura agrária brasileira continua uma das mais concentradas do mundo.</p>
+                        <p><strong>A reforma agrária, portanto, não é uma ideia “do passado”, mas uma necessidade atual</strong> para que a terra cumpra seu papel social e ambiental, combatendo a desigualdade histórica do país.</p>
+                        <p><strong>A questão agrária brasileira</strong> é um dos temas estruturantes da formação socioeconômica do país, marcada por um processo histórico de <strong>concentração fundiária e exclusão social</strong> que remonta ao período colonial. As <strong>capitanias hereditárias</strong> e a posterior <strong>Lei de Terras de 1850</strong> estabeleceram um modelo de apropriação privada que favoreceu elites rurais e restringiu o acesso dos trabalhadores à terra.</p>
+                        <p><strong>Por isso a reforma agrária emerge como instrumento essencial de democratização do acesso à terra e promoção da justiça social</strong>, não apenas como política redistributiva, mas como parte de um projeto nacional de <strong>desenvolvimento sustentável</strong>. A efetivação da <strong>função social da propriedade</strong>, prevista na <strong>Constituição Federal de 1988</strong>, constitui o marco jurídico-político para reconfigurar as relações agrárias no país.</p>
+                        <p>No contexto contemporâneo, com a <strong>expansão do agronegócio</strong>, as <strong>mudanças climáticas</strong>, a <strong>crescente urbanização</strong> e o avanço das <strong>tecnologias agrícolas</strong>, o debate sobre reforma agrária ganha novas dimensões. É indispensável uma <strong>perspectiva interdisciplinar</strong> — histórica, econômica, social, ambiental e tecnológica — para construir um campo mais produtivo, sustentável e socialmente inclusivo.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="impactos-sociais" class="content-card hidden">
+                <h2>🏙️ Impactos sociais e urbanos da concentração de terras</h2>
+                <div class="subcard-container">
+                    <article class="subcard">
+                        <p>A concentração fundiária no campo não afeta apenas quem vive no campo. Ela empurra milhões de famílias para as cidades, alimentando o êxodo rural, o desemprego urbano e o crescimento das periferias.</p>
+                        <p><strong>A reforma agrária possui implicações que transcendem o espaço rural</strong>, produzindo efeitos diretos e indiretos sobre a estrutura social e urbana do país. Ao promover a <strong>redistribuição de terras</strong> e a <strong>inclusão produtiva</strong> de populações historicamente marginalizadas, a reforma contribui para a <strong>redução das desigualdades socioeconômicas</strong>, a <strong>geração de empregos</strong> e a ampliação do <strong>acesso a direitos fundamentais</strong> como moradia, alimentação e educação.</p>
+                        <p><strong>A democratização do acesso à terra</strong> atua como instrumento de <strong>fortalecimento da cidadania</strong> e de <strong>cohesão social</strong>, reduzindo a migração forçada para os centros urbanos e, consequentemente, <strong>mitigando a formação de periferias precárias</strong>. Por outro lado, a ausência de políticas agrárias efetivas intensifica a <strong>urbanização desordenada</strong> e a concentração populacional em áreas metropolitanas, sobrecarregando infraestrutura de habitação, transporte e saneamento.</p>
+                        <p>Integrar políticas de reforma agrária com estratégias de <strong>desenvolvimento urbano e regional</strong> permite promover uma <strong>ocupação territorial mais equilibrada e sustentável</strong>. Assentamentos dotados de infraestrutura, com <strong>acesso à educação técnica</strong> e <strong>incentivos à produção agroecológica</strong>, fortalecem economias locais e estimulam <strong>redes produtivas solidárias entre campo e cidade</strong>. Assim, a reforma agrária deve ser compreendida como parte de uma agenda mais ampla de <strong>planejamento territorial</strong>, voltada à construção de um modelo de <strong>desenvolvimento socialmente justo e ambientalmente equilibrado</strong>.</p>
+                        <!-- MapBiomas embed: Moradia/Urbanização -->
+                        <div class="mapbiomas-section" style="margin-top:1.2em;">
+                            <h4>📊 Visualização MapBiomas — Moradia / Urbanização</h4>
+                            <p>Carregue o gráfico interativo do MapBiomas para analisar mudanças no uso do solo relacionadas à expansão urbana e moradia.</p>
+                            <button type="button" class="mapbiomas-load-btn" data-target="mapbiomas-moradia" aria-controls="mapbiomas-moradia">Carregar gráfico (Moradia)</button>
+                            <div id="mapbiomas-moradia" class="mapbiomas-embed" data-img-src="assets/map_moradia_2024.svg" data-embed-url="" style="margin-top:12px;">
+                                <!-- Salve aqui o SVG de moradia como assets/map_moradia_2024.svg ou substitua o caminho -->
+                                <div class="map-placeholder">Gráfico não carregado. Clique em carregar para inserir o gráfico.</div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li><strong>Segundo o IBGE:</strong> mais de 85% dos brasileiros vivem em áreas urbanas — muitos chegaram às cidades impulsionados pelo êxodo rural, sem estrutura adequada de moradia ou emprego.</li>
+                            <li><strong>Redistribuição de terras e inclusão produtiva</strong> contribuem para a <strong>redução das desigualdades socioeconômicas</strong>, a <strong>geração de empregos</strong> e o acesso ampliado a direitos fundamentais (moradia, alimentação, educação).</li>
+                            <li><strong>A democratização do acesso à terra</strong> fortalece a cidadania e a coesão social, reduzindo a migração forçada para os centros urbanos e <strong>mitigando a formação de periferias precárias</strong>.</li>
+                            <li><strong>Na ausência de políticas agrárias efetivas</strong>, ocorre intensificação da urbanização desordenada e sobrecarga de infraestrutura urbana (habitação, transporte, saneamento), ampliando a vulnerabilidade social.</li>
+                            <li><strong>Integrar reforma agrária com planejamento urbano e regional</strong> (assentamentos com infraestrutura, educação técnica e incentivos agroecológicos) fortalece economias locais e cria redes produtivas entre campo e cidade.</li>
+                        </ul>
+                        <p>A redistribuição de terras produtivas, acompanhada de políticas de apoio e capacitação, reduziria pressões urbanas, melhoraria a produção alimentar local e fortaleceria as economias regionais.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="projecoes-uso" class="content-card hidden">
+                <h2>📈 Projeções de uso da terra em um cenário de Reforma Agrária</h2>
+                <div class="subcard-container">
+                    <article class="subcard">
+                        <p>Imagine um cenário em que parte das terras improdutivas — cerca de 20% das grandes propriedades — fosse destinada à reforma agrária. Estudos do IPEA e da CPT sugerem que:</p>
+                        <div class="data-box-projection">
+                            <p>1 Milhão de Famílias: Seria possível assentar mais de 1 milhão de famílias em áreas já identificadas como ociosas.</p>
+                            <p>10% do Território: Isso ocuparia menos de 10% do território agrícola total, preservando espaço para o agronegócio e ampliando a produção de alimentos básicos.</p>
+                            <p>30% de Aumento: Estima-se que a agricultura familiar poderia aumentar em até 30% sua produção de alimentos frescos (feijão, hortaliças, frutas, leite), com impacto direto na redução da fome e na geração de empregos locais.</p>
+                        </div>
+                        
+                        <h3>Em números simples:</h3>
+                        <ul class="list-simple-data">
+                            <li>🌾 70% da produção para alimentação interna viria da agricultura familiar</li>
+                            <li>🚜 20% das terras mantidas para exportação e biocombustíveis</li>
+                            <li>🌳 10% preservadas como áreas de conservação e uso sustentável</li>
+                        </ul>
+                        <h3>Projeções e cenários futuros</h3>
+                        <p><strong>As projeções indicam que a efetivação da reforma agrária poderá redefinir profundamente as dinâmicas territoriais, produtivas e sociais</strong> nas próximas décadas. Estudos do IPEA, FAO e organizações como a Oxfam Brasil sugerem que a <strong>redistribuição de terras</strong> combinada com políticas de crédito, assistência técnica e infraestrutura rural pode aumentar em até <strong>20% a produção de alimentos básicos</strong> destinados ao consumo interno, fortalecendo a segurança alimentar nacional.</p>
+                        <p><strong>No plano socioeconômico</strong>, a expansão da agricultura familiar tende a <strong>fixar populações no campo</strong>, reduzir a pressão migratória sobre as cidades e dinamizar economias regionais. Estimativas do INCRA apontam que cada <strong>100 famílias assentadas</strong> podem gerar direta e indiretamente entre <strong>250 e 300 postos de trabalho locais</strong>, considerando toda a cadeia produtiva, logística e comercialização.</p>
+                        <p><strong>Em termos urbanos</strong>, a redução do êxodo rural pode aliviar a expansão desordenada das periferias metropolitanas e favorecer a consolidação de cidades médias como polos de integração campo–cidade, ampliando a circulação de renda, a oferta de emprego e a arrecadação municipal.</p>
+                        <p><strong>Do ponto de vista ambiental</strong>, assentamentos estruturados com princípios de agroecologia e manejo sustentável podem contribuir para a mitigação climática: estimativas (MapBiomas, 2024) sugerem potencial de redução de até <strong>15% das emissões agrícolas</strong> até 2035 e recuperação de grandes áreas de solos degradados.</p>
+                        <p><strong>Sem políticas estruturantes</strong>, projeta-se a manutenção da concentração fundiária — menos de 1% dos proprietários controlando quase metade das terras agricultáveis — com aprofundamento do êxodo rural, dependência de commodities e crescente conflito no campo.</p>
+
+                        <div class="data-box-projection" style="margin-top:1.2em;">
+                            <h4>🔍 Destaques das projeções</h4>
+                            <table style="width:100%; border-collapse:collapse; margin-top:8px;">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:left; padding:6px 8px; border-bottom:1px solid var(--cor-borda);">Dimensão</th>
+                                        <th style="text-align:left; padding:6px 8px; border-bottom:1px solid var(--cor-borda);">Cenário com Reforma Agrária</th>
+                                        <th style="text-align:left; padding:6px 8px; border-bottom:1px solid var(--cor-borda);">Cenário sem Reforma Agrária</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding:6px 8px; vertical-align:top;">Produção de alimentos</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">+20% em alimentos básicos; diversificação produtiva</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">Dependência crescente de commodities; insegurança alimentar urbana</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:6px 8px; vertical-align:top;">Emprego e renda rural</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">Até 250–300 empregos gerados por 100 famílias assentadas</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">Êxodo rural contínuo; ampliação da pobreza urbana</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:6px 8px; vertical-align:top;">Urbanização</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">Redução da pressão sobre periferias; valorização de cidades médias</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">Expansão desordenada e aumento da vulnerabilidade social</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:6px 8px; vertical-align:top;">Meio ambiente</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">Redução de até 15% das emissões agrícolas até 2035; recuperação de solos</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">Avanço do desmatamento e degradação de solos</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:6px 8px; vertical-align:top;">Estrutura fundiária</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">Desconcentração gradual e equilíbrio regional</td>
+                                        <td style="padding:6px 8px; vertical-align:top;">Concentração extrema (≈1% controlando ~50% da terra)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="historia-posse" class="content-card hidden">
+                <h2>📜 História da posse e distribuição das terras no Brasil</h2>
+                <div class="subcard-container">
+                    <article class="subcard">
+                        <h3>1.1. Período Colonial – As Capitanias Hereditárias (1500–1534)</h3>
+                        <p class="summary">Capitanias e sesmarias institucionalizaram a apropriação da terra por elites, gerando concentração fundiária desde o século XVI.</p>
+                        <button type="button" class="read-more-btn">Ler mais</button>
+                        <div class="full-text" style="display:none; margin-top:0.8em;">
+                            <p>Desde a colonização portuguesa, a posse da terra foi organizada por um sistema de <strong>capitanias hereditárias</strong> e, mais tarde, de <strong>sesmarias</strong>, que transformaram a apropriação do solo em privilégio concedido pela Coroa a grupos restritos. Essa estrutura inicial consolidou uma elite agrária e vinculou a posse da terra à lógica de poder político e econômico, com expulsão e trabalho compulsório de povos indígenas e populações escravizadas.</p>
+                        </div>
+                    </article>
+                    <article class="subcard">
+                        <h3>2. Século XVIII – Ciclo do Ouro e expansão das fazendas</h3>
+                        <p class="summary">O ciclo do ouro e a expansão das fazendas consolidaram grandes propriedades e aprofundaram a desigualdade fundiária.</p>
+                        <button type="button" class="read-more-btn">Ler mais</button>
+                        <div class="full-text" style="display:none; margin-top:0.8em;">
+                            <p>No século XVIII, o ciclo do ouro e a expansão das grandes fazendas aprofundaram a lógica latifundiária. A terra passou a ser elemento central da distinção social e da acumulação de riqueza, com grandes propriedades dominando vastas porções do território e reforçando desigualdades estruturais.</p>
+                        </div>
+                    </article>
+                    <article class="subcard">
+                        <h3>3. Século XIX – O fim das sesmarias e a Lei de Terras (1850)</h3>
+                        <p class="summary">A Lei de Terras (1850) transferiu o acesso à terra para um regime de compra, restringindo o acesso popular e consolidando o latifúndio.</p>
+                        <button type="button" class="read-more-btn">Ler mais</button>
+                        <div class="full-text" style="display:none; margin-top:0.8em;">
+                            <p>A promulgação da <strong>Lei de Terras (1850)</strong> marcou uma virada: o acesso à terra passou a depender de compra, extinguindo a doação de sesmarias. Apesar de apresentada como modernização, a lei restringiu o acesso dos trabalhadores libertos e dos imigrantes pobres à propriedade rural, perpetuando a exclusão social e a concentração fundiária.</p>
+                        </div>
+                    </article>
+                    <article class="subcard">
+                        <h3>4. Século XX – Reforma Agrária e Ditadura Militar</h3>
+                        <p class="summary">O século XX foi marcado por políticas que favoreceram grandes produtores; o Estatuto da Terra (1964) introduziu a função social, mas encontrou forte resistência.</p>
+                        <button type="button" class="read-more-btn">Ler mais</button>
+                        <div class="full-text" style="display:none; margin-top:0.8em;">
+                            <p>Ao longo do século XX, o modelo agrário antigo manteve-se majoritário, com políticas públicas frequentemente favorecendo grandes produtores e monoculturas de exportação. Na década de 1960, debates e pressões sociais elevaram a pauta da reforma agrária; o <strong>Estatuto da Terra (1964)</strong> introduziu o princípio da função social da propriedade, mas sua aplicação foi limitada por resistências e, posteriormente, pela repressão do regime militar.</p>
+                        </div>
+                    </article>
+                    <article class="subcard">
+                        <h3>5. Século XXI – Grandes corporações, soja e exportações</h3>
+                        <p class="summary">A expansão do agronegócio e a globalização fortaleceram grandes grupos, aumentando mecanização e controle territorial sem desconcentrar a propriedade.</p>
+                        <button type="button" class="read-more-btn">Ler mais</button>
+                        <div class="full-text" style="display:none; margin-top:0.8em;">
+                            <p>Nas últimas décadas, a modernização agrícola e a globalização das cadeias produtivas fortaleceram o <strong>agronegócio</strong>, com mecanização e expansão territorial de grandes grupos econômicos. Essa dinâmica não levou à desconcentração fundiária; ao contrário, reconfigurou desigualdades, expulsando mão de obra e consolidando o controle de grandes propriedades sobre parcelas significativas do território.</p>
+                        </div>
+                    </article>
+                    <article class="subcard">
+                        <h3>6. Movimentos Sociais e Lutas por Terra</h3>
+                        <p class="summary">Movimentos como o MST organizaram a demanda por redistribuição, titulação e políticas de apoio, pressionando por mudanças legislativas e sociais.</p>
+                        <button type="button" class="read-more-btn">Ler mais</button>
+                        <div class="full-text" style="display:none; margin-top:0.8em;">
+                            <p>Movimentos camponeses e organizações sociais (como o MST) emergiram para reivindicar a reforma agrária e o direito à terra, articulando demandas por distribuição, titulação e políticas de apoio. Essas mobilizações tiveram papel central na pressão política que culminou em normas constitucionais e em políticas públicas, mesmo diante de forte resistência das elites rurais.</p>
+                        </div>
+                    </article>
+                    <article class="subcard">
+                        <h3>7. Legislação Atual e Desafios</h3>
+                        <p class="summary">A Constituição de 1988 reafirmou a função social da terra, mas a implementação prática tem sido desigual e limitada por fatores políticos e orçamentários.</p>
+                        <button type="button" class="read-more-btn">Ler mais</button>
+                        <div class="full-text" style="display:none; margin-top:0.8em;">
+                            <p>A <strong>Constituição Federal de 1988</strong> reafirmou a função social da propriedade e criou mecanismos para desapropriação de terras improdutivas. No entanto, a implementação tem sido desigual: avanços pontuais coexistem com descontinuidades e limitações orçamentárias. A modernização agrícola recente, ao mesmo tempo que aumentou produtividade, não solucionou a concentração; assim, a questão agrária permanece essencialmente política e estrutural, exigindo políticas integradas para promover uma democratização efetiva do acesso à terra.</p>
+                        </div>
+                    </article>
+
+                </div>
+                <p class="final-historia"><strong>Conclusão do histórico:</strong> Desde 1500, a história da terra no Brasil é marcada pela concentração, exploração e desigualdade. Compreender essa trajetória é essencial para propor uma reforma agrária justa.</p>
+            </section>
+
+            <section id="motivos-pro" class="content-card hidden">
+                <h2>✅ Por que fazer Reforma Agrária?</h2>
+                <div class="subcard-container"> <article class="subcard">
+                        <div class="motivo-grid">
+                            <article class="motivo-item">
+                                <h3>⚖️ 1. Justiça social e correção histórica</h3>
+                                <p><strong>Corrige séculos de desigualdade:</strong> devolvendo à terra sua função social, conforme a Constituição Federal (art. 186).</p>
+                            </article>
+                            <article class="motivo-item">
+                                <h3>🍎 2. Soberania e segurança alimentar</h3>
+                                <p>Incentiva a produção de alimentos para o mercado interno, fortalecendo a agricultura familiar, responsável por mais de <strong>70%</strong> dos alimentos na mesa do brasileiro.</p>
+                            </article>
+                            <article class="motivo-item">
+                                <h3>💰 3. Desenvolvimento econômico e geração de emprego</h3>
+                                <p>Pequenas propriedades são mais intensivas em mão de obra, geram renda e dinamizam a economia local.</p>
+                            </article>
+                            <article class="motivo-item">
+                                <h3>🌳 4. Proteção ambiental e uso sustentável</h3>
+                                <p>Assentamentos agroecológicos tendem a preservar o meio ambiente, usar menos agrotóxicos e manter a diversidade de culturas.</p>
+                            </article>
+                            <article class="motivo-item">
+                                <h3>🏡 5. Direito à moradia e à dignidade</h3>
+                                <p>A terra é mais que um recurso econômico — é um espaço de vida, cultura e pertencimento. Garantir o acesso à terra é garantir que famílias possam morar, plantar, educar seus filhos e viver com dignidade.</p>
+                            </article>
+                            <article class="motivo-item">
+                                <h3>🤝 6. Democratização do poder</h3>
+                                <p>Quem controla a terra, controla a política. A reforma agrária descentraliza esse poder, fortalecendo a democracia e a cidadania, dando voz a quem historicamente foi silenciado no campo.</p>
+                            </article>
+                        </div>
+                        <div class="conclusao-motivos" style="margin-top:1.5em;">
+                            <h4>💬 Conclusão</h4>
+                            <p><strong>Fazer reforma agrária não é “tirar de uns para dar a outros”,</strong> mas organizar o uso da terra para que ela cumpra sua função social, garantindo que o Brasil produza alimentos para todos, preserve o meio ambiente e promova igualdade real. Sem democratizar o acesso à terra, não há como falar em justiça social, sustentabilidade ou soberania nacional.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="motivos-contra" class="content-card hidden">
+                <h2>❌ Por que alguns são contra a Reforma Agrária</h2>
+                <p>A reforma agrária enfrenta resistência de grandes proprietários, agronegócio e economistas liberais. Aqui estão os pontos que eles usam e o contexto:</p>
+
+                <div class="subcard-container">
+                    <article class="subcard">
+                        <div class="pros-contras-table">
+                            <div class="argumento-item">
+                                <h4>💸 1. “Gera custos altos para o Estado”</h4>
+                                <p class="contra">Críticos: Indenizar terras e estruturar assentamentos custa muito dinheiro público.</p>
+                                <p class="pro-resposta"><strong>🟢 Resposta:</strong> O investimento gera <strong>retorno econômico</strong> em poucos anos, por meio da produção local e redução do êxodo rural.</p>
+                            </div>
+                            <div class="argumento-item">
+                                <h4>🌾 2. “Agronegócio é eficiente e competitivo”</h4>
+                                <p class="contra">Críticos: Dividir terras diminuiria a produtividade e enfraqueceria as exportações.</p>
+                                <p class="pro-resposta"><strong>🟢 Resposta:</strong> O agronegócio é eficiente para exportar <em>commodities</em>, mas não resolve a fome interna.</p>
+                            </div>
+                            <div class="argumento-item">
+                                <h4>🧱 3. “Muitos assentamentos não deram certo”</h4>
+                                <p class="contra">Críticos: Apontam a existência de assentamentos mal estruturados, com falta de assistência técnica, abandono e baixa produção — usados como prova de que a reforma “não funciona”.</p>
+                                <p class="pro-resposta"><strong>🟢 Por outro lado:</strong> Esses casos geralmente falham por falta de apoio e políticas públicas. Onde há crédito, capacitação e infraestrutura, os assentamentos produzem e prosperam.</p>
+                            </div>
+                            <div class="argumento-item">
+                                <h4>⚖️ 4. “Propriedade privada deve ser inviolável”</h4>
+                                <p class="contra">Críticos: Fere o direito à propriedade privada.</p>
+                                <p class="pro-resposta"><strong>🟢 Resposta:</strong> A Constituição diz que a terra deve cumprir sua <strong>função social</strong>. Terras improdutivas podem ser desapropriadas com indenização.</p>
+                            </div>
+                            <div class="argumento-item">
+                                <h4>🧍‍♂️ 5. “O problema da fome é urbano, não rural”</h4>
+                                <p class="contra">Alguns dizem que a pobreza está nas cidades, e que reformar o campo não resolveria os problemas sociais.</p>
+                                <p class="pro-resposta"><strong>🟢 Por outro lado:</strong> o campo e a cidade estão interligados. Sem acesso à terra, as famílias migram para as periferias urbanas, aumentando o desemprego e a miséria. Reformar o campo melhora a vida também nas cidades.</p>
+                            </div>
+                        </div>
+                        <div class="conclusao-contra" style="margin-top:1.5em;">
+                            <h4>💬 Conclusão</h4>
+                            <p>Os que são contra a reforma agrária defendem que o mercado e o agronegócio são as melhores formas de gerir a terra. Já os que são a favor defendem que a terra é um bem social, e não apenas mercadoria. Em resumo: O debate não é só econômico, é ético e político — trata de quem tem o direito de viver e produzir dignamente no Brasil.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <section id="politicas-agro" class="content-card hidden">
+                <h2>🚜 Políticas e instrumentos que favorecem o agronegócio</h2>
+                <div class="subcard-container">
+                    <article class="subcard">
+                        <div class="acordeao">
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="1">
+                                    1 Regime de Drawback
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Permite a <strong>isenção ou suspensão de tributos</strong> sobre insumos usados em produtos destinados à exportação. Reduz o custo de produção para exportadores do agro.</p>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="2">
+                                    2 Programas de reintegração tributária (REINTEGRA e mecanismos semelhantes)
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Programas como o Reintegra devolvem parte de tributos pagos ao longo da cadeia de produção às empresas exportadoras, funcionando como uma forma de ressarcimento e estímulo às exportações. Esses mecanismos retroalimentam a lucratividade das empresas exportadoras e melhoram sua margem operacional, favorecendo principalmente indústrias e tradings que participam do comércio internacional.</p>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="3">
+                                    3 Lei Kandir (ICMS)
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Desonera a circulação de mercadorias destinadas à exportação do ICMS, tornando as exportações de produtos primários (soja em grão) mais atraentes.</p>
+                                </div>
+                            </div>
+
+                            
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="5">
+                                    4 Linhas de crédito público
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Setor recebe <strong>crédito específico e financiamentos</strong> (via BNDES e crédito rural) com condições favoráveis, facilitando a expansão e a adoção de tecnologia de escala.</p>
+                                </div>
+                            </div>
+
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="4">
+                                    5 Incentivos fiscais e renúncias (PIS/COFINS, regimes especiais e despesas tributárias)
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Além dos instrumentos acima, há um conjunto de incentivos fiscais e renúncias (tax expenditures) que, no agregado, representam valores relevantes para a economia. São regimes, isenções e tratamentos especiais que acabam reduzindo a carga tributária para atividades exportadoras e para cadeias integradas ao agronegócio.</p>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="6">
+                                    6 Lobby e bancada ruralista
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>A atuação organizada da Frente Parlamentar da Agropecuária (bancada ruralista) no Congresso influencia o desenho de políticas e a manutenção de benefícios fiscais.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resumo-politicas" style="margin-top:1.2em;">
+                            <h4>Resumo Geral</h4>
+                            <p>Em termos práticos, os principais beneficiários dessas políticas são: grandes proprietários rurais, cooperativas de larga escala, tradings (Cargill, Bunge, Amaggi, COFCO etc.), operadores portuários e empresas com capacidade logística e de comercialização internacional. Por outro lado, os menos beneficiados são: agricultores familiares sem escala de produção, trabalhadores rurais sem terra, comunidades tradicionais e assentamentos, que têm pouco acesso às linhas de crédito em grande volume, aos regimes aduaneiros e não capturam a maior parte do valor agregado das exportações.</p>
+                            <p>Programas como o Reintegra e mecanismos de incentivo favorecem empresas exportadoras e melhoram margens operacionais; estudos sobre "tax expenditures" mostram que as renúncias fiscais agregadas representam valores relevantes quando somadas.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="plano-pratico" class="content-card hidden">
+                <h2>📝 Plano prático: Como distribuir terras em uma Reforma Agrária</h2>
+                <div class="subcard-container">
+                    <article class="subcard">
+                        <div class="acordeao">
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="1">
+                                    1) Identificar e qualificar terras passíveis de distribuição
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Fontes: terras públicas ociosas, áreas desapropriadas por função social. Mapeamento: usar MapBiomas/CAR/CNIR/INCRA para criar camada cartográfica com polígonos candidatos.</p>
+                                </div>
+                            </div>
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="2">
+                                    2) Definir modelos de assentamento / forma de distribuição
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Modelos flexíveis: <strong>Assentamentos Familiares Individuais</strong> (2 ha a 50 ha) ou <strong>Assentamentos Cooperativos/Comunitários</strong>. Priorizar famílias sem terra e jovens agricultores.</p>
+                                </div>
+                            </div>
+                            <!-- Inseridos: 3) Critérios e prioridade e 4) Mecanismo de escolha e alocação -->
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="3">
+                                    3) Critérios e ordem de prioridade para seleção de beneficiários
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <ul>
+                                        <li>Famílias sem terra comprovada (prioridade legal).</li>
+                                        <li>Trabalhadores rurais assentados provisoriamente ou expulsos.</li>
+                                        <li>Mulheres chefes de família e jovens agricultores.</li>
+                                        <li>Povos e comunidades tradicionais e quilombolas (com atenção à legislação específica).</li>
+                                        <li>Famílias em programas sociais locais com comprovada necessidade.</li>
+                                    </ul>
+                                    <p><strong>Documentação mínima:</strong> identificação, comprovante de renda (quando aplicável), declaração de atividade rural, comprovante de residência, autodeclaração de vulnerabilidade, referências locais. Use comissões locais para verificação social.</p>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="4">
+                                    4) Mecanismo de escolha e alocação
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <ul>
+                                        <li>Edital público com regras claras (prazo para inscrição, critérios, recursos).</li>
+                                        <li>Comissão de seleção com representantes da prefeitura, INCRA (se houver), movimentos sociais e comunidade.</li>
+                                        <li>Lista pública e transparência: publicar lista de classificados e mapa interativo.</li>
+                                        <li>Sorteio público quando demanda &gt; oferta e candidatos aptos.</li>
+                                        <li>Fase de audiência pública para exposição e contestação antes da homologação.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="5">
+                                    5) Titulação e garantia jurídica
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Contrato de concessão de uso inicial (termo de assentamento) e título definitivo após comprovação de uso produtivo e cuidados ambientais.</p>
+                                </div>
+                            </div>
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="7">
+                                    7) Apoio técnico e financeiro
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Essencial para o sucesso: Assistência técnica contínua (Extensão Rural), crédito acessível e Programas de compra pública (merenda escolar) para garantir mercado.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="8">
+                                    8) Regras ambientais e uso da terra
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <ul>
+                                        <li>Preservar APPs e Reserva Legal conforme Código Florestal.</li>
+                                        <li>Plano de uso da unidade (parcelas + área de reserva) aprovado antes da titulação.</li>
+                                        <li>Incentivo a práticas agroecológicas, sistemas agroflorestais e recuperação de áreas degradadas.</li>
+                                        <li>Monitoramento remoto para evitar desmatamento ilegal.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="9">
+                                    9) Mecanismos de compensação e indenização (quando houver desapropriação)
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <ul>
+                                        <li>Indenização justa baseada em valor de mercado comprovado, com negociação.</li>
+                                        <li>Pagamentos parcelados ou via títulos públicos para evitar sobrecarga no erário imediato.</li>
+                                        <li>Prioridade à compra voluntária e programas de compra direta pelo Estado quando possível.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="10">
+                                    10) Conflitos e resolução
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <ul>
+                                        <li>Núcleo local de mediação com representantes do Estado, Justiça Agrária, movimentos e comunidade.</li>
+                                        <li>Documentação e trânsito rápido de processos para evitar longa litigância.</li>
+                                        <li>Garantias de proteção aos assentados contra grileiros e milícias rurais (articulação com segurança pública).</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="11">
+                                    11) Monitoramento, avaliação e indicadores de sucesso
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <p>Mantenha um sistema de acompanhamento (painel trimestral) com indicadores:</p>
+                                    <ul>
+                                        <li>Nº de famílias assentadas com título definitivo.</li>
+                                        <li>% lotes com produção ativa (colheita/ano).</li>
+                                        <li>Renda média familiar antes/depois do assentamento.</li>
+                                        <li>Nº de empregos gerados por ha.</li>
+                                        <li>Área preservada/recuperada (ha).</li>
+                                        <li>Grau de acesso a mercados (contratos com merenda/feiras).</li>
+                                        <li>Satisfação social (pesquisa anual com famílias).</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="12">
+                                    12) Cronograma simplificado (exemplo)
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <ul>
+                                        <li>Mês 0–3: identificação de terras, estudos ambientais, edital.</li>
+                                        <li>Mês 4–6: inscrições e seleção pública; audiências.</li>
+                                        <li>Mês 7–9: preparação das parcelas, infraestrutura básica.</li>
+                                        <li>Mês 10: entrega/controle inicial, contratos de concessão.</li>
+                                        <li>Mês 11–36: assistência técnica, credenciamento de crédito, monitoramento; avaliação a 12 e 24 meses. (Total: fase piloto 12 meses; consolidação 36 meses.)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="13">
+                                    13) Modelos de sustentabilidade financeira do projeto
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <ul>
+                                        <li>Fundo municipal/estadual de Reforma Agrária (contribuições, repasses federais).</li>
+                                        <li>Parcerias com universidades (extensão e pesquisa aplicada).</li>
+                                        <li>Convênios com ONGs para capacitação.</li>
+                                        <li>Programas de compras públicas (merenda, mercados institucionais) para garantir demanda.</li>
+                                        <li>Projetos de geração de valor agregado (beneficiamento para aumentar renda).</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="acordeao-item">
+                                <button class="acordeao-titulo" aria-expanded="false" data-step="14">
+                                    14) Checklist prático para o relatório / AVA (o que anexar)
+                                    <span class="acordeao-icon">▼</span>
+                                </button>
+                                <div class="acordeao-conteudo">
+                                    <ul>
+                                        <li>Mapas (polígonos das terras escolhidas).</li>
+                                        <li>Lista de famílias selecionadas (com anonimização quando necessário).</li>
+                                        <li>Edital e ata do sorteio/seleção.</li>
+                                        <li>Minutas de contrato de concessão e termo de compromisso.</li>
+                                        <li>Plano de uso de cada parcela (mapa + resumo de cultivo).</li>
+                                        <li>Orçamento e fonte de financiamento.</li>
+                                        <li>Plano de assistência técnica e cronograma de entrega de infraestrutura.</li>
+                                        <li>Indicadores e método de monitoramento.</li>
+                                    </ul>
+                                    <p><strong>Proposta de distribuição:</strong> as terras serão distribuídas segundo um modelo misto (assentamentos familiares e cooperativos), priorizando famílias sem terra, trabalhadores rurais e comunidades tradicionais. Cada lote terá dimensão compatível com o tipo de produção local (ex.: 2–20 ha para agricultura familiar em zonas rurais; 0,02–0,2 ha para lotes periurbanos de moradia/produtivos). A seleção será pública, com edital, comissão plural e sorteio quando necessário. A titulação será progressiva: concessão inicial e título definitivo após comprovação de uso produtivo e cumprimento de compromissos socioambientais. Todos os assentamentos receberão infraestrutura básica, assistência técnica contínua e acesso a linhas de crédito e mercados institucionais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="ideias-complementares" class="content-card hidden">
+                <h2>💡 Dimensão: Ideias Complementares</h2>
+                <div class="subcard-container">
+                            <article class="subcard edu-hero">
+                                <h3>Visão educativa</h3>
+                                <p><strong>Objetivo:</strong> oferecer uma leitura estruturada e didática das oito dimensões, com termos-chave, exemplos práticos e recursos para aprofundamento.</p>
+                                <div class="takeaways">
+                                    <h4>O que você vai aprender</h4>
+                                    <ul>
+                                        <li>Conceitos fundamentais da função social da terra e instrumentos jurídicos.</li>
+                                        <li>Impactos sociais e ambientais da concentração fundiária.</li>
+                                        <li>Modelos práticos de reforma agrária e políticas públicas complementares.</li>
+                                        <li>Recursos e exercícios para continuar estudando de forma autônoma.</li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <article class="subcard glossary">
+                                <h3>Glossário rápido</h3>
+                                <dl>
+                                    <dt><strong>Função social da propriedade</strong></dt>
+                                    <dd>Obrigação de que a terra seja usada de forma a beneficiar a coletividade, garantindo produção, trabalho e preservação ambiental.</dd>
+                                    <dt><strong>Latifúndio</strong></dt>
+                                    <dd>Grande propriedade concentrada nas mãos de poucos, frequentemente ociosa ou voltada a monoculturas de exportação.</dd>
+                                    <dt><strong>Assentamento</strong></dt>
+                                    <dd>Área destinada a famílias sem terra por programas de reforma agrária, geralmente com titulação progressiva.</dd>
+                                </dl>
+                            </article>
+                            <article class="subcard examples">
+                                <h3>Exemplos práticos</h3>
+                                <ul>
+                                    <li><strong>Projeto de merenda escolar:</strong> conectar assentamentos a programas de alimentação escolar para gerar mercado local.</li>
+                                    <li><strong>Incubadora agroecológica:</strong> universidade local oferece assistência técnica e certificação orgânica para pequenos produtores.</li>
+                                    <li><strong>Cinturão verde periurbano:</strong> hortas comunitárias que abastecem feiras e reduzem custos logísticos urbanos.</li>
+                                </ul>
+                            </article>
+                            <article class="subcard activities">
+                                <h3>Atividades sugeridas</h3>
+                                <ol>
+                                    <li>Leia um artigo do IBGE sobre migração campo–cidade e escreva um parágrafo sobre como a reforma agrária poderia impactar sua região.</li>
+                                    <li>Mapeie um pequeno raio de 20 km ao redor da sua cidade: identifique áreas ociosas, unidades de conservação e fazer hipóteses de uso.</li>
+                                    <li>Organize um debate local (presencial ou online) com representantes de agricultura familiar e agronegócio para comparar perspectivas.</li>
+                                </ol>
+                            </article>
+                            <article class="subcard resources">
+                                <h3>Para saber mais</h3>
+                                <ul>
+                                    <li><a href="https://www.ibge.gov.br" target="_blank" rel="noopener">IBGE — Estatísticas e Censos</a></li>
+                                    <li><a href="https://www.incra.gov.br" target="_blank" rel="noopener">INCRA — Informações sobre Reforma Agrária</a></li>
+                                    <li><a href="https://www.ipea.gov.br" target="_blank" rel="noopener">IPEA — Estudos e Projeções</a></li>
+                                    <li><a href="https://mapbiomas.org" target="_blank" rel="noopener">MapBiomas — Mapas e séries históricas de uso da terra</a></li>
+                                </ul>
+                                <p style="margin-top:0.8em; font-size:0.95rem; color:var(--cor-texto-claro)"><strong>Dica do guia:</strong> comece pelos conceitos do glossário e pelas atividades. Use os recursos listados para dados e mapas locais.</p>
+                            </article>
+                </div>
+            </section>
+
+            <section id="conclusao-final" class="content-card hidden">
+                <h2>🌱 Conclusão Final O futuro da terra brasileira</h2>
+                <div class="subcard-container">
+                    <article class="subcard">
+                        <p><strong>A Reforma Agrária é mais do que um ato de distribuição de terras; é um projeto de país.</strong> Envolve justiça social, combate à desigualdade histórica e reestruturação da produção de alimentos. O Brasil possui um vasto território, e a função social da terra (prevista na Constituição de 1988) exige que o uso da propriedade privada beneficie a coletividade, e não apenas o seu detentor.</p>
+                        <p>A experiência mostra que o sucesso não depende apenas da desapropriação, mas sim da implementação de <strong>políticas públicas robustas</strong> que ofereçam crédito, assistência técnica e infraestrutura para garantir que os assentamentos se tornem produtivos, sustentáveis e fontes de riqueza para o país.</p>
+                        
+                        <div class="destaque-final">
+                            <em>"O problema da terra no Brasil nunca foi a falta de espaço, mas sim a falta de <strong>democracia</strong>."</em>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Portfolio Acadêmico: Reforma Agrária. Victor Hugo Sanches - Unisanta. Todos os direitos reservados. | Dados baseados em IPEA, IBGE e CPT.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navButtons = Array.from(document.querySelectorAll('.nav-btn'));
+            const contentCards = document.querySelectorAll('.content-card');
+            const acordeaoTitulos = document.querySelectorAll('.acordeao-titulo');
+            const navMenu = document.getElementById('navMenu');
+            const mainContent = document.getElementById('mainContent');
+
+            // --- 1. Funcionalidade de Navegação (Sidebar) ---
+
+            function showSection(targetId) {
+                // Remove 'active' de todos os cards de conteúdo e adiciona 'hidden'
+                contentCards.forEach(card => {
+                    card.classList.remove('active');
+                    card.classList.add('hidden');
+                });
+
+                // Remove 'active' de todos os botões
+                navButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+
+                // Exibe a seção alvo e a marca como ativa
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    targetSection.classList.add('active');
+                    
+                    // Ativa o botão correspondente (marca aria-selected)
+                    const targetButton = document.querySelector(`.nav-btn[data-target="${targetId}"]`);
+                    if (targetButton) {
+                        targetButton.classList.add('active');
+                        targetButton.setAttribute('aria-selected', 'true');
+                    }
+                    
+                    // Rola suavemente para a área de conteúdo no mobile
+                    // Move o foco para a área de conteúdo (útil após navegação por teclado/enter)
+                    if (mainContent) {
+                        mainContent.focus({ preventScroll: true });
+                    }
+
+                    if (window.innerWidth < 992) {
+                        const contentArea = document.querySelector('.content-area');
+                        contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            }
+
+            // Adiciona o evento de clique aos botões de navegação
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    showSection(targetId);
+                });
+            });
+
+            // Navegação por teclado dentro do menu (ArrowUp/ArrowDown/Home/End) e ativação com Enter/Space
+            if (navMenu) {
+                navMenu.addEventListener('keydown', function(e) {
+                    const keys = ['ArrowDown', 'ArrowUp', 'Home', 'End', 'Enter', ' '];
+                    if (!keys.includes(e.key)) return;
+
+                    const focusable = navButtons;
+                    const currentIndex = focusable.indexOf(document.activeElement);
+
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        const next = focusable[(currentIndex + 1) % focusable.length];
+                        next.focus();
+                    }
+                    if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        const prev = focusable[(currentIndex - 1 + focusable.length) % focusable.length];
+                        prev.focus();
+                    }
+                    if (e.key === 'Home') {
+                        e.preventDefault();
+                        focusable[0].focus();
+                    }
+                    if (e.key === 'End') {
+                        e.preventDefault();
+                        focusable[focusable.length - 1].focus();
+                    }
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (document.activeElement && typeof document.activeElement.click === 'function') {
+                            document.activeElement.click();
+                        }
+                    }
+                });
+            }
+            
+            // Garante que a primeira seção seja exibida e o botão ativado ao carregar
+            showSection('intro-section');
+
+
+            // --- 2. Funcionalidade de Acordeão (Plano Prático) ---
+
+            // --- 3. Abas para seção Políticas (politica-tabs) ---
+            (function(){
+                const tablist = document.querySelectorAll('#politicaTabs .tab');
+                const panels = document.querySelectorAll('#politicaTabs .tabpanel');
+
+                if (!tablist.length) return;
+
+                function activateTab(tab) {
+                    // Deactivate all
+                    tablist.forEach(t => {
+                        t.setAttribute('aria-selected', 'false');
+                        t.setAttribute('tabindex', '-1');
+                    });
+                    panels.forEach(p => p.classList.remove('active'));
+
+                    // Activate target
+                    tab.setAttribute('aria-selected', 'true');
+                    tab.setAttribute('tabindex', '0');
+                    const panelId = tab.getAttribute('aria-controls');
+                    const panel = document.getElementById(panelId);
+                    if (panel) panel.classList.add('active');
+                    tab.focus({preventScroll:true});
+                }
+
+                tablist.forEach((tab, idx) => {
+                    tab.addEventListener('click', () => activateTab(tab));
+                    tab.addEventListener('keydown', (e) => {
+                        const key = e.key;
+                        let newIndex = idx;
+                        if (key === 'ArrowRight') newIndex = (idx + 1) % tablist.length;
+                        else if (key === 'ArrowLeft') newIndex = (idx - 1 + tablist.length) % tablist.length;
+                        else if (key === 'Home') newIndex = 0;
+                        else if (key === 'End') newIndex = tablist.length - 1;
+                        else if (key === 'Enter' || key === ' ') { e.preventDefault(); activateTab(tab); return; }
+                        else return;
+
+                        e.preventDefault();
+                        tablist[newIndex].focus();
+                    });
+                });
+
+                // Ensure first tab is active on load
+                const first = document.querySelector('#politicaTabs .tab[aria-selected="true"]') || tablist[0];
+                if (first) activateTab(first);
+            })();
+
+            acordeaoTitulos.forEach(titulo => {
+                titulo.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+                    const content = this.nextElementSibling;
+
+                    // Fecha todos os acordeões, exceto o clicado (efeito "single-open")
+                    acordeaoTitulos.forEach(t => {
+                        if (t !== this) {
+                            t.setAttribute('aria-expanded', 'false');
+                            t.nextElementSibling.classList.remove('expanded');
+                        }
+                    });
+
+                    // Inverte o estado do acordeão clicado
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    content.classList.toggle('expanded');
+                });
+            });
+
+            // --- 4. Funcionalidade 'Ler mais' para resumos históricos ---
+            const readMoreButtons = Array.from(document.querySelectorAll('.read-more-btn'));
+
+            readMoreButtons.forEach((btn, idx) => {
+                // Find the associated full-text block (prefer nextElementSibling, fallback to query)
+                let fullText = btn.nextElementSibling;
+                if (!fullText || !fullText.classList.contains('full-text')) {
+                    fullText = btn.parentElement.querySelector('.full-text');
+                }
+
+                // Ensure unique id for aria-controls
+                if (fullText && !fullText.id) {
+                    fullText.id = `fulltext-${idx}`;
+                }
+
+                btn.setAttribute('aria-expanded', 'false');
+                if (fullText) btn.setAttribute('aria-controls', fullText.id);
+
+                function toggleReadMore() {
+                    if (!fullText) return;
+                    const isOpen = fullText.style.display && fullText.style.display !== 'none';
+                    if (isOpen) {
+                        fullText.style.display = 'none';
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.textContent = 'Ler mais';
+                    } else {
+                        fullText.style.display = 'block';
+                        btn.setAttribute('aria-expanded', 'true');
+                        btn.textContent = 'Ler menos';
+                        // Move focus to the expanded content for screen reader users
+                        fullText.setAttribute('tabindex', '-1');
+                        fullText.focus({preventScroll: true});
+                    }
+                }
+
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleReadMore();
+                });
+
+                // Keyboard activation (Enter / Space)
+                btn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleReadMore();
+                    }
+                });
+            });
+
+            // --- 5. MapBiomas embeds (lazy load toggles) ---
+            const mapBtns = Array.from(document.querySelectorAll('.mapbiomas-load-btn'));
+
+            mapBtns.forEach(btn => {
+                const targetId = btn.getAttribute('data-target');
+                const target = document.getElementById(targetId);
+                if (!target) return;
+
+                function loadEmbed() {
+                    const imgSrc = target.dataset.imgSrc && target.dataset.imgSrc.trim();
+                    const embedUrl = target.dataset.embedUrl && target.dataset.embedUrl.trim();
+
+                    // Toggle existing iframe or img if present
+                    const existingIframe = target.querySelector('iframe');
+                    const existingImg = target.querySelector('img.mapbiomas-img');
+                    if (existingIframe) {
+                        existingIframe.remove();
+                        btn.textContent = btn.textContent.replace('Ocultar', 'Carregar');
+                        const ph = document.createElement('div'); ph.className = 'map-placeholder'; ph.textContent = 'Gráfico não carregado. Clique em carregar para inserir o gráfico.'; target.appendChild(ph);
+                        return;
+                    }
+                    if (existingImg) {
+                        existingImg.remove();
+                        btn.textContent = btn.textContent.replace('Ocultar', 'Carregar');
+                        const ph = document.createElement('div'); ph.className = 'map-placeholder'; ph.textContent = 'Gráfico não carregado. Clique em carregar para inserir o gráfico.'; target.appendChild(ph);
+                        return;
+                    }
+
+                    // Prefer local SVG image if provided
+                    if (imgSrc) {
+                        const placeholder = target.querySelector('.map-placeholder');
+                        if (placeholder) placeholder.remove();
+                        const img = document.createElement('img');
+                        img.className = 'mapbiomas-img';
+                        img.src = imgSrc;
+                        img.alt = target.getAttribute('aria-label') || 'Gráfico MapBiomas';
+                        img.style.maxWidth = '100%';
+                        img.style.height = 'auto';
+                        target.appendChild(img);
+                        btn.textContent = btn.textContent.replace('Carregar', 'Ocultar');
+                        // Show dataset card if exists
+                        const card = target.querySelector('.map-dataset-card');
+                        if (card) card.style.display = 'block';
+                        return;
+                    }
+
+                    // Fallback to embed URL (iframe) — prompt if missing
+                    if (!embedUrl) {
+                        const provided = prompt('Cole aqui a URL de embed do MapBiomas (ou clique Cancelar para sair):');
+                        if (!provided) return;
+                        target.dataset.embedUrl = provided.trim();
+                    }
+
+                    // remove placeholder if present
+                    const placeholder = target.querySelector('.map-placeholder');
+                    if (placeholder) placeholder.remove();
+
+                    const iframe = document.createElement('iframe');
+                    iframe.loading = 'lazy';
+                    iframe.allowFullscreen = true;
+                    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+                    iframe.src = target.dataset.embedUrl;
+                    iframe.title = 'MapBiomas — visualização interativa';
+                    target.appendChild(iframe);
+                    btn.textContent = btn.textContent.replace('Carregar', 'Ocultar');
+                    const card2 = target.querySelector('.map-dataset-card');
+                    if (card2) card2.style.display = 'block';
+                }
+
+                btn.addEventListener('click', function(e){ e.preventDefault(); loadEmbed(); });
+            });
+
+            // Toggle dataset metadata raw view
+            document.querySelectorAll('.toggle-metadata').forEach(toggle => {
+                toggle.addEventListener('click', function(){
+                    const pre = this.parentElement.querySelector('.dataset-metadata');
+                    if (!pre) return;
+                    const isVisible = pre.style.display && pre.style.display !== 'none';
+                    pre.style.display = isVisible ? 'none' : 'block';
+                    this.textContent = isVisible ? 'Ver metadados brutos (JSON)' : 'Ocultar metadados';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

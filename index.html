@@ -316,57 +316,6 @@
 <p><strong>Do ponto de vista ambiental</strong>, assentamentos estruturados com princípios de agroecologia e manejo sustentável podem contribuir para a mitigação climática: estimativas (MapBiomas, 2024) sugerem potencial de redução de até <strong>15% das emissões agrícolas</strong> até 2035 e recuperação de grandes áreas de solos degradados.</p>
 <p><strong>Sem políticas estruturantes</strong>, projeta-se a manutenção da concentração fundiária — menos de 1% dos proprietários controlando quase metade das terras agricultáveis — com aprofundamento do êxodo rural, dependência de commodities e crescente conflito no campo.</p>
 
-<h3>Mapa de Urbanização (MapBiomas 2024)</h3>
-<p>As áreas em vermelho representam a urbanização observada em 2024 segundo os dados do MapBiomas.</p>
-<h4>Mapa de Urbanização (MapBiomas 2024)</h4>
-<iframe 
-  src="https://plataforma.brasil.mapbiomas.org/urban/urban_annual_urbanization?tl[year]=2024&t[regionKey]=brazil" 
-  width="100%" 
-  height="600" 
-  style="border:none; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-</iframe>
-
-                        <!-- CSS do Leaflet -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
-
-<!-- JS do Leaflet -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<script>
-  // Inicializa o mapa no centro do Brasil
-  const map = L.map('mapa-urbano').setView([-14.235, -51.9253], 4);
-
-  // Camada base - OpenStreetMap
-  const baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
-    maxZoom: 19
-  }).addTo(map);
-
-// Camada de referência visual semelhante à urbanização (usando Stamen Toner Lite)
-const mapbiomasUrban = L.tileLayer(
-  'https://stamen-tiles.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png',
-  {
-    attribution: 'Visualização base (Stamen / OSM)',
-    opacity: 0.5,
-    maxZoom: 18
-  }
-);
-
-  // Adiciona controle de camadas
-  const layers = {
-    "Mapa base": baseLayer,
-    "Urbanização MapBiomas 2024": mapbiomasUrban
-  };
-  L.control.layers(layers).addTo(map);
-
-  // Adiciona camada urbana ativa por padrão
-  mapbiomasUrban.addTo(map);
-</script>
-
-
                     <div class="chart-wrapper">
     <h3>Evolução do Uso Agrícola por Culturas (1985 - 2024)</h3>
     <div class="chart-container-temporal">

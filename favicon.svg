@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Planta</title>
+  <g fill="none" fill-rule="evenodd">
+    <circle cx="32" cy="32" r="32" fill="#0f6b36"/>
+    <path d="M20 40c0-8 12-12 12-20 0 8 12 12 12 20-6 0-6 6-24 6s-12-6-12-6z" fill="#fff" opacity="0.95"/>
+    <path d="M34 16c2 4 0 8-6 12" stroke="#0f6b36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

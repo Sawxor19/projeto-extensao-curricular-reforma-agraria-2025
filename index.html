@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta name="description" content="Estudo sobre a função social da terra no Brasil: história, impactos sociais, políticas públicas e propostas práticas para reforma agrária.">
     <meta name="theme-color" content="#28a745">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -188,6 +188,8 @@
         table{width:100%;border-collapse:collapse}
         th,td{padding:8px;border-bottom:1px solid var(--cor-borda);text-align:left}
 
+
+
         /* Footer */
         .main-footer{padding:22px;text-align:center;background:var(--cor-card-fundo);border-top:1px solid var(--cor-borda);color:var(--cor-texto-claro)}
 
@@ -232,7 +234,7 @@
 <body>
 
     <header class="main-header">
-        <h2>Reforma Agrária — Guia Educativo</h2>
+        <h4>Reforma Agrária — Guia Educativo</h4>
         <p>Guia educativo: conceitos, contexto e recursos práticos para entender a função social da terra.</p>
     </header>
 
@@ -248,6 +250,7 @@
             <button type="button" class="nav-btn" data-target="plano-pratico" aria-controls="plano-pratico" aria-selected="false">📝 Plano Prático de Distribuição</button>
             <button type="button" class="nav-btn" data-target="ideias-complementares" aria-controls="ideias-complementares" aria-selected="false">💡 Dimensão: Ideias Complementares</button>
             <button type="button" class="nav-btn" data-target="conclusao-final" aria-controls="conclusao-final" aria-selected="false">🌱 Conclusão Final</button>
+            <button type="button" class="nav-btn" data-target="referencias" aria-controls="referencias" aria-selected="false">📚 Referências</button>
         </nav>
 
         <div id="mainContent" class="content-area" tabindex="-1">
@@ -848,16 +851,31 @@
                     <article class="subcard">
                         <p><strong>A Reforma Agrária é mais do que um ato de distribuição de terras; é um projeto de país.</strong> Envolve justiça social, combate à desigualdade histórica e reestruturação da produção de alimentos. O Brasil possui um vasto território, e a função social da terra (prevista na Constituição de 1988) exige que o uso da propriedade privada beneficie a coletividade, e não apenas o seu detentor.</p>
                         <p>A experiência mostra que o sucesso não depende apenas da desapropriação, mas sim da implementação de <strong>políticas públicas robustas</strong> que ofereçam crédito, assistência técnica e infraestrutura para garantir que os assentamentos se tornem produtivos, sustentáveis e fontes de riqueza para o país.</p>
-                        
+                        <p>Considerando que o Brasil tem <strong>851,5 milhões de hectares, somente o agronegócio ocupa de 300 a 350 milhões de hectares.</strong></p>
+                        <p>Em 2019, o IBGE estimou que o país possui aproximadamente<strong>4,5 milhões de hectares de áreas urbanizadas.</strong></p>
+                        <p>Em Março de 2025, a OBPopRua da UFMG registrou cerca de <strong>335 mil pessoas em situação de rua no país.</strong></p>
+                        <p>Em 2022, o IBGE apontou que<strong> 588 mil imóveis estão vazios apenas no estado de São Paulo.</strong></p>
                         <div class="destaque-final">
                             <em>"O problema da terra no Brasil nunca foi a falta de espaço, mas sim a falta de <strong>democracia</strong>."</em>
                         </div>
                     </article>
                 </div>
             </section>
-
-
         </div>
+        
+            <section id="referencias" class="content-card hidden">
+                <h2>📚 Referências</h2>
+                <div class="subcard-container">
+                    <article class="subcard referencias-lista">
+                        <h3>Fontes e leituras recomendadas</h3>
+                        <ul>
+                            <li>Instituto Brasileiro de Geografia e Estatística (IBGE). Censo Agropecuário 2017. Disponível em: <a href="https://www.ibge.gov.br" target="_blank" rel="noopener">www.ibge.gov.br</a></li>
+                            <li>Instituto Nacional de Colonização e Reforma Agrária (INCRA). Relatórios anuais de Reforma Agrária. Disponível em: <a href="https://www.incra.gov.br" target="_blank" rel="noopener">www.incra.gov.br</a></li>
+                            <li>Instituto de Pesquisa Econômica Aplicada (IPEA). Estudos sobre concentração fundiária e políticas públicas. Disponível em: <a href="https://www.ipea.gov.br" target="_blank" rel="noopener">www.ipea.gov.br</a></li>
+                            <li>MapBiomas. Coleção de Mapas de Uso e Cobertura da Terra no Brasil. Disponível em: <a href="https://mapbiomas.org" target="_blank" rel="noopener">mapbiomas.org</a></li>
+                        </ul>
+                    </article>
+                </div>
     </main>
 
     <footer class="main-footer">
@@ -1165,7 +1183,7 @@
     // Dados do seu arquivo CSV: Agricultura • Uso Agrícola por classe • 2024.csv
     const labels = ['Lavoura Temporária', 'Lavoura Perene'];
     const dataValues = [60214540, 2447874]; // Área em hectares
-    const percentageValues = [96.1, 3.9]; // Percentual
+    const percentageValues = [96.1, 3.9]; // Percentual 
 
     const ctx = document.getElementById('usoAgricolaChart').getContext('2d');
     
